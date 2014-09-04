@@ -1,13 +1,29 @@
 "use strict";
 
-describe('a test suite', function() {
-    it('should return true', function() {
-        expect(1).toBe(1);
-    });
+var words = ['dog', 'golf', 'friend', 'do', 'go'];
 
-    it('should fail', function() {
-        expect(false).toBe(true);
-    });
+describe('#validConstruction', function() {
+  it('doggo should be true', function() {
+    expect(validateSentence(words, 'doggo')).toBeTruthy();
+  });
 
+  it('dogo should be true', function() {
+    expect(validateSentence(words, 'dogo')).toBeTruthy();
+  });
+
+  it('dogolf should be true', function() {
+    expect(validateSentence(words, 'dogolf')).toBeTruthy();
+  });
+  it('dodododododog should be true', function() {
+    expect(validateSentence(words, 'dododododododog')).toBeTruthy();
+  });
+
+  it('dogodogolfdoggofrienddodoggolfdogogogodog should be true', function() {
+    expect(validateSentence(words, 'dogodogolfdoggofrienddodoggolfdogogogodog')).toBeTruthy();
+  });
+
+  it('friendo should be false', function() {
+    expect(validateSentence(words, 'friendo')).toBeFalsy();
+  });
 
 });
